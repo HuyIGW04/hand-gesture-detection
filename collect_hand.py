@@ -26,9 +26,9 @@ print(get_label_from_config(CONFIG_PATH))
 # check axis
 class CSVWriterBot:
     def __init__(self, PATH):
-        self.csv_file = open(PATH, "a")
+        self.csv_file = open(PATH, "a", newline="")
         self.writer = csv.writer(
-            self.csv_file, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+            self.csv_file, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL, lineterminator="\n")
 
     def add_row(self, hand_gestures, label):
         self.writer.writerow(
